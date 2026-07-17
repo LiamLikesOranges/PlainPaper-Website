@@ -83,6 +83,29 @@ setActiveLink();
 window.addEventListener("scroll", setActiveLink, { passive: true });
 
 // ===========================================
+// Copy-to-clipboard for setup commands
+// ===========================================
+
+document.querySelectorAll(".copy-btn").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+        const text = btn.getAttribute("data-copy") || "";
+        try {
+            await navigator.clipboard.writeText(text);
+        } catch (err) {
+            // Clipboard API unavailable — fall back to a manual selection prompt
+            window.prompt("Copy this command:", text);
+        }
+        const original = btn.textContent;
+        btn.textContent = "Copied!";
+        btn.classList.add("copied");
+        setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove("copied");
+        }, 1800);
+    });
+});
+
+// ===========================================
 // Footer year
 // ===========================================
 
