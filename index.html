@@ -185,6 +185,44 @@
 
         </div>
 
+        <div class="setup-inner" id="setup">
+
+            <div class="section-head reveal">
+                <div class="eyebrow"><span class="dot"></span>Before you launch this tab</div>
+                <h2>Set up local AI in three steps</h2>
+                <p>PlainPaper doesn't ship its own model — it talks to Ollama, which runs the model on your machine.</p>
+            </div>
+
+            <div class="steps">
+
+                <div class="step reveal">
+                    <div class="step-num">01</div>
+                    <h3>Install Ollama</h3>
+                    <p>Grab the installer for your OS from the official site and run it. This is what actually runs the AI model locally.</p>
+                    <a class="btn btn-secondary" href="https://ollama.com/download" target="_blank" rel="noopener">Get Ollama →</a>
+                </div>
+
+                <div class="step reveal">
+                    <div class="step-num">02</div>
+                    <h3>Pull a model</h3>
+                    <p>Open a terminal and pull a model. <code>llama3.1</code> is a solid general-purpose default — swap in any model Ollama supports.</p>
+                    <div class="code-block">
+                        <code>ollama pull llama3.1</code>
+                        <button class="copy-btn" type="button" data-copy="ollama pull llama3.1">Copy</button>
+                    </div>
+                </div>
+
+                <div class="step reveal">
+                    <div class="step-num">03</div>
+                    <h3>Open the AI tab</h3>
+                    <p>Launch PlainPaper and open the AI Assistant tab — it detects Ollama and the models you've pulled automatically.</p>
+                    <a class="btn btn-secondary" href="#download">Jump to download ↓</a>
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
     <!-- ========================= -->
@@ -224,48 +262,6 @@
                         <img src="screenshots/tools-page-crop.png" alt="PlainPaper tools workspace with color-coded categories">
                     </div>
                 </div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ========================= -->
-    <!-- Local AI Install -->
-    <!-- ========================= -->
-
-    <section id="setup">
-
-        <div class="section-head reveal">
-            <div class="eyebrow"><span class="dot"></span>Before you launch the AI tab</div>
-            <h2>Set up local AI in three steps</h2>
-            <p>PlainPaper doesn't ship its own model — it talks to Ollama, which runs the model on your machine.</p>
-        </div>
-
-        <div class="steps">
-
-            <div class="step reveal">
-                <div class="step-num">01</div>
-                <h3>Install Ollama</h3>
-                <p>Grab the installer for your OS from the official site and run it. This is what actually runs the AI model locally.</p>
-                <a class="btn btn-secondary" href="https://ollama.com/download" target="_blank" rel="noopener">Get Ollama →</a>
-            </div>
-
-            <div class="step reveal">
-                <div class="step-num">02</div>
-                <h3>Pull a model</h3>
-                <p>Open a terminal and pull a model. <code>llama3.1</code> is a solid general-purpose default — swap in any model Ollama supports.</p>
-                <div class="code-block">
-                    <code>ollama pull llama3.1</code>
-                    <button class="copy-btn" type="button" data-copy="ollama pull llama3.1">Copy</button>
-                </div>
-            </div>
-
-            <div class="step reveal">
-                <div class="step-num">03</div>
-                <h3>Install PlainPaper</h3>
-                <p>Open the AI Assistant tab and PlainPaper will detect Ollama and the models you've pulled automatically.</p>
-                <a class="btn btn-secondary" href="#download">Jump to download ↓</a>
             </div>
 
         </div>
