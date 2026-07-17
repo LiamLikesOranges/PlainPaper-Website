@@ -1,58 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>PlainPaper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PlainPaper is a local-first AI cybersecurity workstation. Reconnaissance, OSINT, web analysis, and a local AI assistant — powered by Ollama, running entirely on your machine.">
+    <title>PlainPaper — A cybersecurity workstation that never phones home</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 </head>
-
 <body>
+
+    <div class="glow" aria-hidden="true"></div>
 
     <!-- ========================= -->
     <!-- Navbar -->
     <!-- ========================= -->
 
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
 
-        <div class="logo">
-            📄 PlainPaper
-        </div>
-
-        <div class="nav-links">
-
-            <a href="#features">Features</a>
-
-            <a href="#requirements">Requirements</a>
-
-            <a href="#download">Download</a>
-
-            <a href="https://github.com/LiamLikesOranges/PlainPaper"
-               target="_blank">
-
-                GitHub
-
+            <a href="#" class="logo">
+                <span class="logo-mark">&gt;_</span>
+                PlainPaper
             </a>
 
-        </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#ai">AI Assistant</a>
+                <a href="#tools">Tools</a>
+                <a href="#requirements">Requirements</a>
+                <a href="https://github.com/LiamLikesOranges/PlainPaper" target="_blank" rel="noopener">GitHub</a>
+                <a href="#download" class="nav-cta">Download</a>
+            </div>
 
+        </div>
     </nav>
 
     <!-- ========================= -->
@@ -61,123 +48,91 @@
 
     <section class="hero">
 
-        <h1>PlainPaper</h1>
+        <div class="eyebrow hero-eyebrow">
+            <span class="dot"></span>
+            v1.0 &middot; Windows 10/11 &middot; Local-first
+        </div>
 
-        <h2>
-            Local-first AI Cybersecurity Workstation
-        </h2>
+        <h1>A cybersecurity workstation that <span>never phones home.</span></h1>
 
-        <p>
-
-            Bring AI, cybersecurity tools, and your terminal together in one
-            modern desktop application.
-
+        <p class="hero-sub">
+            PlainPaper brings reconnaissance, OSINT, web analysis, and a local AI
+            assistant into one desktop app — powered by Ollama, running entirely
+            on your machine.
         </p>
 
         <div class="hero-buttons">
-
-            <a class="primary-btn"
-               href="https://github.com/LiamLikesOranges/PlainPaper/releases/download/a/PlainPaperSetup.exe">
-
-                ⬇ Download
-
+            <a class="btn btn-primary btn-lg" href="https://github.com/LiamLikesOranges/PlainPaper/releases/download/a/PlainPaperSetup.exe">
+                Download for Windows
             </a>
-
-            <a class="secondary-btn"
-               href="https://github.com/LiamLikesOranges/PlainPaper"
-               target="_blank">
-
-                ⭐ View Source
-
+            <a class="btn btn-secondary btn-lg" href="https://github.com/LiamLikesOranges/PlainPaper" target="_blank" rel="noopener">
+                View on GitHub
             </a>
-
         </div>
 
         <div class="hero-preview">
-
             <div class="window">
-
                 <div class="window-top">
-
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
-
+                    <span class="window-titlebar-label">plainpaper.exe</span>
                 </div>
-
                 <div class="window-content">
-
-                    <img src="screenshots/hero.png"
-                         alt="PlainPaper Hero"
-                         class="hero-screenshot">
-
+                    <img src="screenshots/tools-page-crop.png" alt="PlainPaper tools workspace, showing color-coded reconnaissance, OSINT, and web analysis tools">
                 </div>
-
             </div>
-
         </div>
 
     </section>
 
     <!-- ========================= -->
-    <!-- Features -->
+    <!-- Features (bento) -->
     <!-- ========================= -->
 
     <section id="features">
 
-        <h2>Features</h2>
+        <div class="section-head reveal">
+            <div class="eyebrow"><span class="dot"></span>Everything, one workspace</div>
+            <h2>Stop switching between ten different tools</h2>
+            <p>Every tab you'd normally have open for an investigation, built into a single window.</p>
+        </div>
 
-        <div class="feature-grid">
+        <div class="bento">
 
-            <div class="feature-card">
-
-                <h3>🧠 Local AI</h3>
-
-                <p>
-
-                    Run AI completely offline using Ollama.
-
-                </p>
-
+            <div class="bento-card wide reveal" data-cat="ai">
+                <div>
+                    <span class="cat-label">AI Assistant</span>
+                    <h3>A local AI that understands your tools</h3>
+                    <p>Ask questions, get explanations, or let it run a lookup for you. It reads your tool results and keeps working with you — no API keys, no cloud calls, nothing leaves your machine.</p>
+                </div>
+                <div class="mini-shot">
+                    <img src="screenshots/ai-page-crop.png" alt="PlainPaper AI assistant connected to a local Ollama model">
+                </div>
             </div>
 
-            <div class="feature-card">
-
-                <h3>🧰 Built-in Security Tools</h3>
-
-                <p>
-
-                    WHOIS, DNS, SSL, GeoIP, Headers,
-                    and more.
-
-                </p>
-
+            <div class="bento-card reveal" data-cat="recon">
+                <span class="cat-label">Reconnaissance</span>
+                <h3>Map a target before you touch it</h3>
+                <p>WHOIS, DNS resolution, ping, and Nmap scans, run from the same place you're taking notes.</p>
             </div>
 
-            <div class="feature-card">
-
-                <h3>💻 Integrated Terminal</h3>
-
-                <p>
-
-                    No more switching between
-                    multiple windows.
-
-                </p>
-
+            <div class="bento-card reveal" data-cat="osint">
+                <span class="cat-label">OSINT</span>
+                <h3>Look a domain or IP up properly</h3>
+                <p>GeoIP, Shodan, and VirusTotal lookups, without fifteen browser tabs.</p>
             </div>
 
-            <div class="feature-card">
+            <div class="bento-card reveal" data-cat="web">
+                <span class="cat-label">Web Analysis</span>
+                <h3>Check headers and certificates</h3>
+                <p>Fetch a URL, review its response headers and SSL certificate against common best practice.</p>
+            </div>
 
-                <h3>📁 Projects</h3>
-
-                <p>
-
-                    Organize investigations,
-                    notes, and workflows.
-
-                </p>
-
+            <div class="bento-card reveal" data-cat="blueteam">
+                <span class="cat-label">Blue Team &amp; Terminal</span>
+                <h3>A terminal that lives next to your findings</h3>
+                <p>Run commands without leaving the app, and keep blue-team tools one click from your notes.</p>
             </div>
 
         </div>
@@ -188,78 +143,38 @@
     <!-- AI Showcase -->
     <!-- ========================= -->
 
-    <section class="showcase">
+    <section id="ai">
 
-        <h2>AI Assistant</h2>
+        <div class="showcase">
 
-        <p>
-
-            Your local AI understands your tools, results, and workflow.
-
-        </p>
-
-        <img src="screenshots/ai-page.png"
-             alt="PlainPaper AI"
-             class="showcase-image">
-
-    </section>
-
-    <!-- ========================= -->
-    <!-- Requirements -->
-    <!-- ========================= -->
-
-    <section id="requirements">
-
-        <h2>Requirements</h2>
-
-        <div class="feature-grid">
-
-            <div class="feature-card">
-
-                <h3>🖥️ Windows</h3>
-
+            <div class="showcase-text reveal">
+                <div class="eyebrow"><span class="dot"></span>Powered by Ollama</div>
+                <h2>Ask your workspace, not a chatbot</h2>
                 <p>
-
-                    Windows 10 or later.
-
+                    The assistant is wired into the same tool registry you use manually —
+                    it knows what WHOIS, DNS, and header checks return, and can run them
+                    itself when you ask. Every model runs locally, so your targets,
+                    findings, and prompts never leave your computer.
                 </p>
-
+                <div class="tag-row">
+                    <span class="tag"><i style="background:var(--accent)"></i>Local inference</span>
+                    <span class="tag"><i style="background:var(--accent)"></i>Streaming responses</span>
+                    <span class="tag"><i style="background:var(--accent)"></i>Tool-aware</span>
+                </div>
             </div>
 
-            <div class="feature-card">
-
-                <h3>🤖 Ollama</h3>
-
-                <p>
-
-                    Required for local AI features.
-
-                </p>
-
-            </div>
-
-            <div class="feature-card">
-
-                <h3>📦 Download</h3>
-
-                <p>
-
-                    PlainPaper-v1.0.zip
-
-                </p>
-
-            </div>
-
-            <div class="feature-card">
-
-                <h3>🚀 Version</h3>
-
-                <p>
-
-                    v1.0
-
-                </p>
-
+            <div class="showcase-visual reveal">
+                <div class="window">
+                    <div class="window-top">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="window-titlebar-label">ai-assistant.exe</span>
+                    </div>
+                    <div class="window-content">
+                        <img src="screenshots/ai-page-crop.png" alt="PlainPaper AI assistant page connected to a local Ollama model">
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -270,19 +185,86 @@
     <!-- Tools Showcase -->
     <!-- ========================= -->
 
-    <section class="showcase">
+    <section id="tools">
 
-        <h2>Built-in Security Tools</h2>
+        <div class="showcase reverse">
 
-        <p>
+            <div class="showcase-text reveal">
+                <div class="eyebrow"><span class="dot"></span>Drag, drop, pin</div>
+                <h2>Every tool, one search away</h2>
+                <p>
+                    Tools are organized and color-coded by category — recon, OSINT, web
+                    analysis, blue team — so you always know what you're reaching for.
+                    Pin the ones you use most to the sidebar and they open in their own
+                    dedicated page, ready to run.
+                </p>
+                <div class="tag-row">
+                    <span class="tag"><i style="background:var(--cat-recon)"></i>Recon</span>
+                    <span class="tag"><i style="background:var(--cat-osint)"></i>OSINT</span>
+                    <span class="tag"><i style="background:var(--cat-web)"></i>Web</span>
+                    <span class="tag"><i style="background:var(--cat-blue-team)"></i>Blue Team</span>
+                </div>
+            </div>
 
-            Professional tools integrated into one modern interface.
+            <div class="showcase-visual reveal">
+                <div class="window">
+                    <div class="window-top">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="window-titlebar-label">tools.exe</span>
+                    </div>
+                    <div class="window-content">
+                        <img src="screenshots/tools-page-crop.png" alt="PlainPaper tools workspace with color-coded categories">
+                    </div>
+                </div>
+            </div>
 
-        </p>
+        </div>
 
-        <img src="screenshots/tools-page.png"
-             alt="PlainPaper Tools"
-             class="showcase-image">
+    </section>
+
+    <!-- ========================= -->
+    <!-- Requirements (spec panel) -->
+    <!-- ========================= -->
+
+    <section id="requirements">
+
+        <div class="section-head reveal">
+            <div class="eyebrow"><span class="dot"></span>Before you install</div>
+            <h2>What it takes to run PlainPaper</h2>
+        </div>
+
+        <div class="spec-panel reveal">
+
+            <div class="spec-panel-head">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span>system_requirements.log</span>
+            </div>
+
+            <div class="spec-row">
+                <span class="spec-key">OS</span>
+                <span class="spec-value">Windows 10 or later</span>
+            </div>
+
+            <div class="spec-row">
+                <span class="spec-key">AI ENGINE</span>
+                <span class="spec-value">Ollama (installed locally)</span>
+            </div>
+
+            <div class="spec-row">
+                <span class="spec-key">DOWNLOAD</span>
+                <span class="spec-value">PlainPaperSetup.exe</span>
+            </div>
+
+            <div class="spec-row">
+                <span class="spec-key">VERSION</span>
+                <span class="spec-value">v1.0<span class="cursor-blink" aria-hidden="true"></span></span>
+            </div>
+
+        </div>
 
     </section>
 
@@ -292,27 +274,27 @@
 
     <section id="download">
 
-        <h2>
+        <div class="download-card reveal">
 
-            Download PlainPaper
+            <div class="eyebrow"><span class="dot"></span>Ready when you are</div>
 
-        </h2>
+            <h2>Download PlainPaper</h2>
+            <p>Version 1.0 &middot; Windows 10/11 &middot; Local-first</p>
 
-        <p>
+            <div class="download-buttons">
+                <a class="btn btn-primary btn-lg" href="https://github.com/LiamLikesOranges/PlainPaper/releases/download/a/PlainPaperSetup.exe">
+                    Download PlainPaper v1.0
+                </a>
+                <a class="btn btn-secondary btn-lg" href="https://github.com/LiamLikesOranges/PlainPaper" target="_blank" rel="noopener">
+                    View Source
+                </a>
+            </div>
 
-            Version 1.0 • Windows 10/11 • Local-first
+            <div class="download-note">
+                No account. No telemetry. No cloud calls.
+            </div>
 
-        </p>
-
-        <br>
-
-        <a class="download-btn"
-
-           href="https://github.com/LiamLikesOranges/PlainPaper/releases/download/a/PlainPaperSetup.exe">
-
-            ⬇ Download PlainPaper v1.0
-
-        </a>
+        </div>
 
     </section>
 
@@ -321,32 +303,27 @@
     <!-- ========================= -->
 
     <footer>
+        <div class="footer-inner">
 
-        <h3>
+            <div class="footer-brand">
+                <span class="logo-mark">&gt;_</span>
+                <strong>PlainPaper</strong>
+                <span class="footer-tagline">Local-first AI cybersecurity workstation</span>
+            </div>
 
-            PlainPaper
+            <div class="footer-links">
+                <a href="#features">Features</a>
+                <a href="#requirements">Requirements</a>
+                <a href="https://github.com/LiamLikesOranges/PlainPaper" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://github.com/LiamLikesOranges/PlainPaper/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+            </div>
 
-        </h3>
+            <div class="footer-meta" id="footer-year">&copy; 2026 PlainPaper</div>
 
-        <p>
-
-            Local-first AI Cybersecurity Workstation
-
-        </p>
-
-        <br>
-
-        <a href="https://github.com/LiamLikesOranges/PlainPaper"
-           target="_blank">
-
-            GitHub Repository
-
-        </a>
-
+        </div>
     </footer>
 
     <script src="script.js"></script>
 
 </body>
-
 </html>

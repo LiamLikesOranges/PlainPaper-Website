@@ -1,173 +1,92 @@
 /*
 ===========================================
-PlainPaper
-
+PlainPaper — Marketing Site
 script.js
-
-Frontend interactions
 ===========================================
 */
 
-console.log("📄 PlainPaper Website Loaded");
-
 // ===========================================
-// Smooth scrolling
+// Smooth scroll for in-page links
 // ===========================================
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
-
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-
+        const id = this.getAttribute("href");
+        if (id.length < 2) return;
+        const target = document.querySelector(id);
         if (target) {
-
-            target.scrollIntoView({
-
-                behavior: "smooth",
-
-                block: "start"
-
-            });
-
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
         }
-
     });
-
 });
 
 // ===========================================
-// Fade-in animation
+// Navbar background on scroll
 // ===========================================
 
-const observer = new IntersectionObserver(
+const navbar = document.getElementById("navbar");
 
-(entries) => {
+const setNavbarState = () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 12);
+};
 
-    entries.forEach(entry => {
+setNavbarState();
+window.addEventListener("scroll", setNavbarState, { passive: true });
 
-        if (entry.isIntersecting) {
+// ===========================================
+// Scroll-reveal for sections and cards
+// ===========================================
 
-            entry.target.classList.add("show");
+const revealTargets = document.querySelectorAll(".reveal");
 
-        }
-
-    });
-
-},
-
-{
-
-    threshold: 0.15
-
-}
-
+const revealObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
 );
 
-document.querySelectorAll("section").forEach(section => {
+revealTargets.forEach((el) => revealObserver.observe(el));
 
-    section.classList.add("hidden");
-
-    observer.observe(section);
-
+// Stagger bento cards slightly for a more orchestrated feel
+document.querySelectorAll(".bento-card.reveal").forEach((card, i) => {
+    card.style.transitionDelay = `${Math.min(i * 60, 240)}ms`;
 });
 
 // ===========================================
-// Active navbar link
+// Active nav link on scroll
 // ===========================================
 
-const sections = document.querySelectorAll("section");
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a[href^='#']");
 
-const navLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-
+const setActiveLink = () => {
     let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 120;
-
+    sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 140;
         if (window.scrollY >= sectionTop) {
-
             current = section.getAttribute("id");
-
         }
-
     });
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === "#" + current) {
-
-            link.classList.add("active");
-
-        }
-
+    navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
     });
+};
 
-});
-
-// ===========================================
-// Download button ripple effect
-// ===========================================
-
-document.querySelectorAll(".primary-btn, .download-btn").forEach(button => {
-
-    button.addEventListener("mouseenter", () => {
-
-        button.style.transform = "translateY(-4px) scale(1.02)";
-
-    });
-
-    button.addEventListener("mouseleave", () => {
-
-        button.style.transform = "";
-
-    });
-
-});
-
-// ===========================================
-// Hero typing effect
-// ===========================================
-
-const heroTitle = document.querySelector(".hero h1");
-
-const originalText = heroTitle.textContent;
-
-heroTitle.textContent = "";
-
-let i = 0;
-
-function typeWriter() {
-
-    if (i < originalText.length) {
-
-        heroTitle.textContent += originalText.charAt(i);
-
-        i++;
-
-        setTimeout(typeWriter, 80);
-
-    }
-
-}
-
-window.addEventListener("load", () => {
-
-    setTimeout(typeWriter, 300);
-
-});
+setActiveLink();
+window.addEventListener("scroll", setActiveLink, { passive: true });
 
 // ===========================================
 // Footer year
 // ===========================================
 
-const footer = document.querySelector("footer p");
-
-footer.innerHTML += "<br><br>© " + new Date().getFullYear() + " PlainPaper";
+const footerYear = document.getElementById("footer-year");
+if (footerYear) {
+    footerYear.textContent = `© ${new Date().getFullYear()} PlainPaper`;
+}
